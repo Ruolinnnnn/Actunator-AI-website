@@ -51,20 +51,20 @@
     </header><!--/header-->
 
     <section id="hero-banner">
-             <div class="banner-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                 
-                                    <h2>Revolutionizing Engineering with AI</h2>
-                                    <p>Divergence AI brings cutting-edge artificial intelligence solutions to engineering, enhancing performance, efficiency, and innovation in various industries.</p>
-                                    <a class="btn btn-primary btn-lg" href="#about">Learn More</a>
-                                 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    </section><!--/#main-slider-->
+        <div id="particle-container"></div> <!-- Particle Effect -->
+        <div class="banner-inner">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <h2>Revolutionizing Engineering with AI</h2>
+                <p>Divergence AI brings cutting-edge artificial intelligence solutions to engineering, enhancing performance, efficiency, and innovation in various industries.</p>
+                <a class="btn btn-primary btn-lg" href="#about">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
 
     <section id="hero-text" class="wow fadeIn">
         <div class="container">
@@ -414,5 +414,33 @@
     <script src="js/jquery.inview.min.js"></script>
     <script src="js/wow.min.js"></script>
     <script src="js/custom-scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script>
+    tsParticles.load("particle-container", {
+        particles: {
+        number: {
+            value: 100,
+            density: { enable: true, value_area: 800 }
+        },
+        color: { value: "#ff0000" }, /* Red particles */
+        shape: { type: "circle" },
+        opacity: { value: 0.7 },
+        size: { value: 5, random: true },
+        move: { enable: true, speed: 2, direction: "none", out_mode: "out" }
+        },
+        interactivity: {
+        events: {
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+            repulse: { distance: 100, duration: 0.4 },
+            push: { particles_nb: 4 }
+        }
+        },
+        retina_detect: true
+    });
+    </script>
+
 </body>
 </html>
