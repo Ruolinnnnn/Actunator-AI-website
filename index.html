@@ -51,7 +51,7 @@
     </header><!--/header-->
 
     <section id="hero-banner">
-        <div id="particle-container"></div> <!-- Particle Effect -->
+        <div id="particle-container"></div>
         <div class="banner-inner">
           <div class="container">
             <div class="row">
@@ -416,33 +416,84 @@
     <script src="js/custom-scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <script>
-        tsParticles.load("particle-container", {
-          fullScreen: { enable: false }, // Disable fullscreen mode
-          particles: {
-            number: {
-              value: 100,
-              density: { enable: true, value_area: 800 }
-            },
-            color: { value: "#ff0000" }, /* Red particles */
-            shape: { type: "circle" },
-            opacity: { value: 0.7 },
-            size: { value: 5, random: true },
-            move: { enable: true, speed: 2, direction: "none", out_mode: "out" }
+      tsParticles.load("particle-container", {
+        fullScreen: { enable: false }, // Particles only within the container
+        particles: {
+          number: {
+            value: 200, // Number of particles
+            density: { enable: true, value_area: 800 }
           },
-          interactivity: {
-            events: {
-              onhover: { enable: true, mode: "repulse" },
-              onclick: { enable: true, mode: "push" }
+          color: { value: "#ff0000" }, // Particle color (red)
+          shape: { type: "circle" },
+          opacity: { value: 0.7, random: false },
+          size: { value: 5, random: true }, // Smaller particles
+          move: {
+            enable: true,
+            speed: 0.5, // Slower particles
+            direction: "none",
+            out_mode: "out"
+          },
+          links: { // Connection lines
+            enable: true,
+            distance: 150,
+            color: "#ff0000", // Connection color (red)
+            opacity: 0.5, // Default opacity of connections
+            width: 1
+          }
+        },
+        interactivity: {
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" }
+          },
+          modes: {
+            grab: {
+              distance: 200, // Distance for mouse hover connection
+              links: { opacity: 1 }
             },
-            modes: {
-              repulse: { distance: 100, duration: 0.4 },
-              push: { particles_nb: 4 }
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true,
+        plugins: [
+          {
+            // Custom plugin to change opacity near the text area
+            particles: {
+              move: {
+                enable: true,
+                speed: 0.5
+              },
+              opacity: {
+                value: 0.7,
+                animation: {
+                  enable: true,
+                  speed: 1,
+                  opacity_min: 0.1
+                }
+              }
+            },
+            interactivity: {
+              events: {
+                onmousemove: {
+                  enable: false // Disable cursor interactivity for opacity changes
+                }
+              }
             }
-          },
-          retina_detect: true
-        });
-      </script>
-      
-
+          }
+        ],
+        // Add a "zone" around the #hero-text area for opacity adjustment
+        customZone: {
+          x: 0, // Starting X position (relative to the container)
+          y: 50, // Adjust to be closer to the text area
+          width: 1200, // Zone width to cover the text area (adjust to your needs)
+          height: 300, // Zone height to cover the text area (adjust to your needs)
+          opacity: {
+            particles: 0.1, // Lower opacity for particles in the zone
+            links: 0.1 // Lower opacity for links in the zone
+          }
+        }
+      });
+    </script>
+    
 </body>
 </html>
