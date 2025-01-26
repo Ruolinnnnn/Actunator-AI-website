@@ -304,7 +304,11 @@ color: #FFFFFF;
   padding: 100px 0 75px;
 }
 .media.service-box {
-  margin: 25px 0 36px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column; /* Makes content stack */
+  justify-content: space-between; /* Ensures equal height spacing */
+  text-align: left;
 }
 .media.service-box .pull-left {
   margin-right: 20px;
@@ -316,17 +320,22 @@ color: #FFFFFF;
   text-align: center;
   width: 106px; 
   color: #FFFFFF;
-  /* background:#fff; */
-  /* box-shadow: inset 0 0 0 1px #d7d7d7; */
-  /* -webkit-box-shadow: inset 0 0 0 1px #d7d7d7; */
-  transition: background-color 400ms, background-color 400ms;
+  transition: background-color 400ms;
   position: relative;
 }
-.features .media.service-box .pull-left > i{
-color:#CC5632;
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch; /* Ensures equal height */
 }
-.media.service-box:hover .pull-left > i {  
+.features .media.service-box {
+  flex: 1 1 calc(33.33% - 30px); /* 3 columns with spacing */
 }
+.features .media.service-box .pull-left > i {
+  color: #CC5632;
+}
+
 #portfolio {
   padding: 100px 0;
   background: #000000;
