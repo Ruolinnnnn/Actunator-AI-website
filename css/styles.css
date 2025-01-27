@@ -504,47 +504,117 @@ margin: 0 8px;
 #about {
   padding: 100px 0;
 }
-/*Team*/ 
+/* Team Section */
 #our-team {
   padding: 100px 0;
 }
+
 #our-team .team-member {
-  padding: 13px; 
-  border: 1px solid #eeeeee; 
+  padding: 13px;
+  border: 1px solid #eeeeee;
 }
+
 #our-team .team-member .team-img {
-  margin: 0;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
-#our-team .team-member .team-info {
-  padding-bottom: 10px; 
-} 
-#our-team .team-member:hover .social-icons > li > a {
-  background: rgb(195, 54, 11);
-  color: #FFFFFF;
-  border: 1px solid #C3360B;
-}
- 
-#our-team .social-icons {
-  list-style: none;
-  padding: 0;
-  margin: 0;  
-  -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
-    transition: height 1s;
-}
-#our-team .social-icons > li {
-  display: inline-block;
-}
-#our-team .social-icons > li > a {
+
+#our-team .team-member .team-img img {
   display: block;
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  text-align: center;
-  color: #C3360B;
-  background: transparent;
-  border-radius: 3px;
-  border: 1px solid #C3360B;
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
 }
+
+#our-team .team-member .team-img:hover img {
+  transform: scale(1.1); /* Slight zoom-in effect on hover */
+}
+
+#our-team .team-member .team-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+  color: #fff; /* White text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding: 15px;
+  overflow-y: auto; /* Enables scrolling for long descriptions */
+}
+
+#our-team .team-member .team-img:hover .team-details {
+  opacity: 1; /* Show text overlay on hover */
+}
+
+#our-team .team-info {
+  padding-top: 15px;
+}
+
+#our-team .team-info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#our-team .team-info p {
+  font-size: 14px; /* Keeps the brief intro font size intact */
+  margin-top: 5px;
+  color: #666;
+}
+
+/* Ensuring the detailed text is scrollable with a max height */
+#our-team .team-member .team-details p {
+  font-size: 16px; /* Slightly larger font for detailed text */
+  max-height: 150px; /* Limit the height to ensure scrolling */
+  overflow-y: auto; /* Enables vertical scroll when the text exceeds the max height */
+  margin: 0; /* Remove default margin */
+  padding-right: 10px; /* To prevent text from sticking to the edge */
+}
+/* Next Team Member Section */
+#our-team .next-member {
+  border: 1px solid #eeeeee;
+  padding: 13px;
+}
+
+#our-team .next-member .team-img {
+  position: relative;
+  background: #f0f0f0; /* Grey background to differentiate */
+  height: 220px; /* Adjust the height for the empty team member */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#our-team .next-member .team-details {
+  color: #333; /* Darker text for visibility */
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  padding: 15px;
+  text-align: center;
+}
+
+#our-team .next-member .team-info {
+  padding-top: 15px;
+}
+
+#our-team .next-member .team-info h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#our-team .next-member .team-info p {
+  font-size: 14px;
+  color: #666;
+}
+
 /*Testimonial Area*/
 
 .testimonial-area{
@@ -729,19 +799,20 @@ margin: 0 8px;
 #contact-us h2 {
 }
 /*Contact*/
- .contact-info{
- padding:60px 0;
- }
+.contact-info {
+  padding: 60px 0;
+}
 .contact-info address {
-margin-bottom: 20px;
-font-style: normal;
-line-height: 27px;
-font-size: 15px;
+  margin-bottom: 20px;
+  font-style: normal;
+  line-height: 27px;
+  font-size: 15px;
 }
 .contact-info .form-control { 
-padding: 6px 12px;
-border-radius: 0;
+  padding: 6px 12px;
+  border-radius: 0;
 }
+
  .business-stats:before {
 content: '';
 margin: 17px;
